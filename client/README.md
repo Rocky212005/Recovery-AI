@@ -1,16 +1,55 @@
-# React + Vite
+# 🤖 RecoverAI
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+### Autonomous AI Payment Recovery Agent
 
-Currently, two official plugins are available:
+RecoverAI is an AI-powered payment recovery system built for the **Razorpay AI Build Hackathon**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Instead of blindly retrying failed payments, RecoverAI analyzes the payment failure, customer history, transaction value, and risk factors to decide the **safest and most effective recovery action**.
 
-## React Compiler
+The system can automatically generate a Razorpay Payment Link and track the recovery through Razorpay webhooks.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## 🚀 Problem
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Failed payments directly result in lost revenue.
+
+Traditional payment systems often:
+
+- Retry payments blindly
+- Use the same failed payment method
+- Spam customers with unnecessary retries
+- Don't consider customer payment history
+- Require manual intervention
+
+RecoverAI solves this by introducing an **AI decision-making layer** between payment failure and recovery.
+
+---
+
+## 💡 Solution
+
+RecoverAI follows this flow:
+
+```text
+Payment Failure
+      ↓
+Customer & Payment Analysis
+      ↓
+Gemini AI Decision Engine
+      ↓
+Recovery Probability
+      ↓
+Recovery Action
+      ↓
+┌───────────────────────┐
+│ Retry                 │
+│ Payment Link          │
+│ Human Escalation      │
+│ Do Nothing            │
+└───────────────────────┘
+      ↓
+Razorpay Recovery
+      ↓
+Webhook
+      ↓
+Dashboard Updated
